@@ -23,8 +23,8 @@
 				<template #cell(N°)="data">
 					{{ data.index + 1 }}
 				</template>
-				<template #cell(habilitado)="habilitado">
-					{{ habilitado ? "SI" : "NO" }}
+				<template #cell(habilitado)="data">
+					{{ data.item.habilitado ? "SI" : "NO" }}
 				</template>
 
 				<template #cell(acciones)="{ item }">
