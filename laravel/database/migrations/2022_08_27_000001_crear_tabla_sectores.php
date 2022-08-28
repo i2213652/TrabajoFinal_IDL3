@@ -16,9 +16,9 @@ return new class extends Migration
 
         $this->down();
 
-        Schema::create('credito_productos', function (Blueprint $table) {
+        Schema::create('credito_sectores', function (Blueprint $table) {
             $table->id();
-            $table->string('producto', 100);
+            $table->string('sector', 100);
             $table->string('descripcion', 200)->nullable();
             $table->boolean('habilitado')->default(1);
 
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('credito_productos');
+        Schema::dropIfExists('credito_sectores');
     }
 };

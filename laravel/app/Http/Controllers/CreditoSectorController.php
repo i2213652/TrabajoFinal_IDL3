@@ -38,7 +38,7 @@ class CreditoSectorController extends Controller
 
         $sector = new CreditoSector();
         $sector->sector = $request->sector;
-        $sector->descripcion = $request->descripcion;
+        $sector->descripcion = $request->descripcion == 'null' ? null : $request->descripcion;
         $sector->habilitado = 1;
         $sector->save();
 
@@ -48,13 +48,13 @@ class CreditoSectorController extends Controller
         return response()->json($response, 200);
     }
 
-    public function updatePut(Request $request, $id)
+    public function updatePut($id, Request $request)
     {
         $response = new \stdClass();
         $sector = CreditoSector::find($id);
 
         $sector->sector = $request->sector;
-        $sector->descripcion = $request->descripcion;
+        $sector->descripcion = $request->descripcion == 'null' ? null : $request->descripcion;
         $sector->habilitado = $request->habilitado;
         $sector->save();
 
@@ -75,7 +75,7 @@ class CreditoSectorController extends Controller
         }
 
         if ($request->descripcion != null) {
-            $sector->descripcion = $request->descripcion;
+            $sector->descripcion = $request->descripcion == 'null' ? null : $request->descripcion;
         }
 
         if ($request->habilitado != null) {
